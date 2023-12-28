@@ -1,4 +1,4 @@
-const {getAllDogsController} = require ('../controllers/getAllDogsController');
+const getAllDogsController = require ('../controllers/getAllDogsController');
 
 const getAllDogsHandler = async (req,res) =>{
     const name = req.query.name;
