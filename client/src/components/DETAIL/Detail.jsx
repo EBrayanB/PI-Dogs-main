@@ -39,13 +39,14 @@ const Detail = () => {
       <div>
         <div>
           <Link to="/home" className={styles.TheDogApp}>
-            THE DOG APP
+            Regresar
+            <span role="img" aria-label="huellitas"> 🐾🐾 </span>
           </Link>
         </div>
       </div>
 
       {Object.keys(doggys).length && typeof doggys !== 'string' ? (
-        <div>
+        <div className={styles.detailContainer}>
           <div>
             <img className={styles.imgDetail} src={doggys.image} alt={doggys.name + ' img'} />
           </div>
@@ -79,22 +80,7 @@ const Detail = () => {
             </div>
           </div>
         </div>
-
       ) : null}
-
-      <div>
-        <div className={styles.footer}>
-          <div>
-            <p>Candela Reynoso, 2023</p>
-            <a href="https://www.linkedin.com/in/CandelaReynoso/">LINKEDIN</a>
-          </div>
-          <div>
-            <a href="https://github.com/CandelaReynoso">
-              GITHUB
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

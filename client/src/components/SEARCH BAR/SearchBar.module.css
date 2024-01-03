@@ -1,54 +1,37 @@
-
-
-  .SearchBar {
-    display: flexbox;
-    font-size: large;
-    margin-left: 7%; 
-    position:relative;
-    right:150px;
-    top:30px;
-  }
-
-  
-  .SearchBar button {
-    margin-left: -3%; /* Margen a la izquierda del botón */
-    background-color: #bde0fe;
-    color: #bc3d49;
-    border: none;
-    font-size: 2rem;
-    font-weight: bold;
-    font-family: DejaVu serif;
-    border-radius: 50rem;
-    cursor: pointer;
-    border-radius:50%;
-    width: 4em;
-    height: 4em;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    top:6px;
-  }
-
-  
-.SearchBar button:hover {
-  background-color: #bc3d49;
-  color: #bde0fe;
-  box-shadow: 0px 0px 10px #bde0fe;
+/* SearchBar.module.css */
+.SearchBarContainer {
+  display: flex;
+  margin-left: auto;
+  margin-right: 20px; /* Ajusta el espacio a la derecha del input */
+  position: relative;
+  top: -30px; /* Movido hacia arriba */
 }
 
-.SearchBar button:hover::before {
+.SearchInput {
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.SearchButton {
+  font-family: 'Dog Paw Prints Font', cursive;
+  background-color: rgba(76, 175, 80, 0.3);
+  color: white;
+  padding: 5px 10px; /* Ajustado el padding para hacer más pequeño el botón */
+  font-size: 1rem; /* Cambiado a 1rem para reducir el tamaño de la fuente */
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.SearchButton:hover {
+  background-color: #744c2e;
+}
+
+.SearchButton:hover::before {
   content: "";
   position: absolute;
-  background-color: #bde0fe;
+  background-color: rgba(76, 175, 80, 0.3);
   border-radius: 50%;
   z-index: -1;
   animation: button-glow 1s ease-in-out infinite;
 }
- 
-
-
-  
-  
-  
-  
-  
-  

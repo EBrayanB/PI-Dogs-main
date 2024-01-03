@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_DOGS,GET_TEMPERAMENTS,GET_FILTER_TEMPERAMENTS,GET_BY_NAME,DELETE_DOG_DB,SORT_BY_WEIGHT, ORDER_BY_NAME,FILTERED_BY_ORIGIN,POST_BREED,DELETE_DOG,UPDATE_DOG} from "./action-types";
+import {GET_DOGS,GET_TEMPERAMENTS,GET_FILTER_TEMPERAMENTS,GET_BY_NAME,GET_BY_ID,SORT_BY_WEIGHT, ORDER_BY_NAME,FILTERED_BY_ORIGIN,POST_BREED,DELETE_DOG,UPDATE_DOG} from "./action-types";
 
 export function getDogs() {
   return async function(dispatch) {
@@ -43,7 +43,7 @@ export function getByName(name) {
               return dispatch({ type: GET_BY_NAME, payload: res.data })
           }  
       } catch (err) {
-        return  alert(`Dog not Found! ${err.message}`);
+        return  alert(`Perro no encontrado, intente de nuevo ${err.message}`);
       }
   };
 }
@@ -51,12 +51,12 @@ export function getByName(name) {
 
 export function getById(id) {
   return async function (dispatch) {
-      try {
-          const res = await axios.get(`http://localhost:3001/dogs/${id}`)
-          dispatch({ type: DELETE_DOG_DB, payload: res.data })
-      } catch (err) {
-          dispatch({ type: DELETE_DOG_DB, payload: err.response.data })
-      }
+    try {
+      const res = await axios.get(`http://localhost:3001/dogs/${id}`);
+      dispatch({ type: GET_BY_ID, payload: res.data });
+    } catch (err) {
+      return  alert(`Perro no encontrado, intente de nuevo ${err.message}`);
+    }
   };
 }
 

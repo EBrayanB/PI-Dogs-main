@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTemperaments, postBreed, updateDog} from '../../redux/actions/actions';
 import {Link, useHistory, useParams} from 'react-router-dom'; 
 import styles from '../FORM/Form.module.css';
-import image from '../../../src/fotos/FormDog.png';
+import image from '../../../src/fotos/FormDog.jpg';
 
 
 
@@ -65,11 +65,7 @@ export default function Creator() {
     
 
     const temperaments = useSelector(state => state.temperaments);
-    //console.log(temperaments)
-    //console.log(typeof (temperaments))
-
-    
-    //Estado que almacena temps seleccionados.
+  
     const [selectedTemperaments, setSelectedTemperaments] = useState([]);
     
     const [errors, setErrors] = useState({})
@@ -224,11 +220,11 @@ function handleSubmit(e) {
       </ul>
       </div>
         <div>
-        <button className={styles.SaveButton} type="submit">Save</button>
+        <button className={styles.SaveButton} type="submit">Crear</button>
         </div>
             <div>
             <Link to = "/home" className={styles.text}>
-                THE DOG APP
+            🐾 Regresar
             </Link> 
           </div>
               </div>           

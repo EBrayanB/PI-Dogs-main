@@ -42,7 +42,7 @@
   
 
 
-  .SaveButton { /* coloca el botón en la misma línea que el anterior */
+  .SaveButton {
   position: relative;
   top: -50px;
   left: 90px;

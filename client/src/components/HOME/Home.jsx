@@ -63,54 +63,38 @@ function Home() {
 
   return (
     <div className={styles.div}>
-      <Link to="/" className={styles.LinkHomeButton}>
-        <p className={styles.text}>WE ♥️ DOGS!</p>
-      </Link>
-      <Link className={styles.landingButton2} to="/"></Link>
-      <br></br>
-      <br></br>
-      <SearchBar />
-      <div>
-        <Link to="/form" className={styles.ButtonCreate}>
-          Create
-        </Link>
+      <Link to="/" className={styles.text}>🐾 Regresar</Link>
+      <div className={styles.labelContainer}>
+        <label className={styles.labelCreate}>¿Quieres crear un perro?</label>
       </div>
-      <br></br>
-      <div>
-        <div className={styles.filterbar}>
-          <select onChange={(event) => handleFilterByBreed(event)}>
-            <option value="asc">Ascending by Breed</option>
-            <option value="desc">Descending by Breed</option>
-          </select>
-          <select onChange={(event) => handleFilterByWeight(event)}>
-            <option value="max">Max-Min weight</option>
-            <option value="min">Min-Max weight</option>
-          </select>
-          <select onChange={(event) => handleFilteredByOrigin(event)}>
-            <option value="all">All dogs</option>
-            <option value="created">Created</option>
-            <option value="api">Existent</option>
-          </select>
-          <select onChange={(event) => handleFilterByTemperament(event)}>
-            <option value="All">All Temperaments</option>
-            {temperamentsState?.map((t, index) => (
-              <option key={index} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div style={{ marginBottom: '50px', marginTop: '50px' }}>
-          <Paginado
-            dogsPerPage={dogsPerPage}
-            dogs={dogs.length}
-            paginado={paginado}
-          />
-        </div>
-        <>
-          <br />
-          <h3 className={styles.currentPage}>Page: {currentPage} </h3>
-        </>
+      <Link to="/form" className={styles.ButtonCreate}>
+        Create
+      </Link>
+      <SearchBar className={styles.SearchBar} />
+      <div className={styles.filterbar}>
+        <select onChange={(event) => handleFilterByBreed(event)}>
+          <option value="asc">Ascending by Breed</option>
+          <option value="desc">Descending by Breed</option>
+        </select>
+        <select onChange={(event) => handleFilterByWeight(event)}>
+          <option value="max">Max-Min weight</option>
+          <option value="min">Min-Max weight</option>
+        </select>
+        <select onChange={(event) => handleFilteredByOrigin(event)}>
+          <option value="all">All dogs</option>
+          <option value="created">Created</option>
+          <option value="api">Existent</option>
+        </select>
+        <select onChange={(event) => handleFilterByTemperament(event)}>
+          <option value="All">All Temperaments</option>
+          {temperamentsState?.map((t, index) => (
+            <option key={index} value={t}>
+              {t}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className={styles.cardContainer}>
         {currentDogs?.map((dog) => (
           <Card
             key={dog.id}
@@ -121,9 +105,21 @@ function Home() {
             temperaments={dog.temperaments}
             temperament={dog.temperament}
             createInDb={dog.createInDb}
+            className={styles.card}
           />
         ))}
       </div>
+      <div style={{ marginBottom: '50px', marginTop: '50px' }}>
+        <Paginado
+          dogsPerPage={dogsPerPage}
+          dogs={dogs.length}
+          paginado={paginado}
+        />
+      </div>
+      <>
+        <br />
+        <h3 className={styles.currentPage}>Page: {currentPage} </h3>
+      </>
     </div>
   );
 }

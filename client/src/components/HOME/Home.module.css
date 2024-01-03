@@ -1,75 +1,68 @@
-
 .div {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 1;
-  background: url('/src/fotos/PerroQueLee.png') no-repeat center center fixed;
+  background: url('/src/fotos/perro_boxer.jpg') no-repeat center center fixed;
   background-size: cover;
   background-position: center;
 }
 
-.div::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #744c2e;
-  opacity: 0.6;
-  z-index: -1;
-}
-
-
 .text {
-  font-family: serif;
-  font-size: 7em;
-  font-weight: bold;
-  position:relative;
-  top:160px;
-  left:-200px;
-  color:#79b3e4;
+  font-family: 'Dog Paw Prints Font', cursive;
+  font-size: 1.5em;
+  color: #000;
+  text-shadow: 2px 2px 5px #fff;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.labelContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; 
 }
 
-
-.text:hover {
-  color: #744c2e;
-  position: relative;
+.labelCreate {
+  font-family: 'Dog Paw Prints Font', cursive;
+  font-size: 1.5em;
+  color: #000;
+  text-shadow: 2px 2px 5px #fff;
+  margin-left: 250px;
 }
 
+.labelCreate:hover {
+  transform: translateY(-5px); /* Efecto de salto hacia arriba al pasar el cursor */
+}
 
 .ButtonCreate {
-  color: #79b3e4;
-  background-color: #bc3d49;
-  font-size: 2rem;
-  font-weight: bold;
-  font-family: DejaVu serif;
-  border-radius: 50%;
+  font-family: 'Dog Paw Prints Font', cursive;
+  background-color: rgba(76, 175, 80, 0.3);
+  color: white;
+  padding: 7px 13px;
+  font-size: 15 px;
+  border-radius: 50px;
   cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  width: 4em;
-  height: 4em;
-  line-height: 4em;
-  text-align: center;
-  position: relative;
-  top: -80px;
-  right: 450px;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  position: absolute;
+  top: 10px; 
+  left: 550px;
 }
-
 .ButtonCreate:hover {
-  color: #d91515;
-  background-color: #add1ee;
-  box-shadow: 0px 0px 10px #bde0fe;
+  background-color: #744c2e; /* Cambia el color al pasar el cursor */
 }
 
 
+.SearchBar {
+  margin-top: 10px;
+}
 
 .filterbar {
+  display: flex; /* Cambiado a flex */
   justify-content: center;
   align-items: center;
+  margin-top: 20px;  /* Ajusta el margen superior */
 }
 
 .filterbar select {
@@ -78,21 +71,27 @@
   background-color: #bde0fe;
   color: #744c2e;
   border: none;
-  font-family: Dejavu serif;
+  font-family: 'Dejavu serif', serif;
   font-size: 1.2rem;
-  position: relative;
-  right: 50px;
-  top:100px;
 }
 
-.LinkHomeButton{
-  color:#744c2e;
-  text-decoration: none;
-  text-shadow:black;
-}
-
-.currentPage{
-  font-family: Dejavu serif;
+.currentPage {
+  font-family: 'Dejavu serif', serif;
   font-size: 1.5em;
-  color:#79b3e4;
+  color: #000000;
+  position: relative;
+  top: 50px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 300px; 
+  margin-left: 300px; 
+}
+
+.card {
+  width: 50px; 
+  margin-bottom: 50px; 
 }

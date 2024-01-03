@@ -1,20 +1,21 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import image from '../../../src/fotos/dog.png'
-import styles from '../LANDING/Landing.module.css'
+import styles from '../LANDING/Landing.module.css';
 
 const LandingPage = () => {
-    
-    return (
-            <div  className={styles.landingWrapper}>
-                <img className={styles.img} src={image} alt="Imagen de un perro"/> 
-                
-            <Link className={styles.landingButton} to="/home">
-                    <button className={styles.text}>THE DOG APP</button>
-                </Link>
-        </div>
-    );
+  const backgroundImage = 'https://besthqwallpapers.com/Uploads/31-5-2018/54540/boxer-dog-autumn-puppy-pets-cute-animals.jpg';
 
+  return (
+    <div className={styles.landingWrapper}>
+      <div className={styles.background} style={{ backgroundImage: `url(${backgroundImage})` }}></div>
+      <div className={styles.content}>
+        <label className={styles.welcomeLabel}> Bienvenido </label>
+        <Link className={styles.landingButton} to="/home">
+          <button className={styles.text}>Ingresa</button>
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default LandingPage;

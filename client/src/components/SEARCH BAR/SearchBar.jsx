@@ -1,7 +1,8 @@
+// SearchBar.jsx
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getByName } from '../../redux/actions/actions';
-import styles from '../SEARCH BAR/SearchBar.module.css'
+import { getByName, getById } from '../../redux/actions/actions';
+import styles from '../SEARCH BAR/SearchBar.module.css';
 
 function SearchBar() {
   const dispatch = useDispatch();
@@ -11,22 +12,36 @@ function SearchBar() {
     setSearchTerm(event.target.value);
   };
 
-  const handleSearch = () => {
-    const search = searchTerm.trim().toLowerCase(); 
-     // Validar que se ingresó un valor corecto.
-   if (!search){
-    alert('Dog not Found.');
-  } else if (!search.match(/^[a-zA-Z]+$/)) {
-    alert('Please enter alphabetic characters only.');
-    return;
- }
-    dispatch(getByName(search));
+  const handleSearch = async () => {
+    const search = searchTerm.trim();
+
+    // Validar que se ingresó un valor correcto.
+    if (!search) {
+      alert('Please enter a valid search term.');
+      return;
+    }
+
+    // Intentar buscar por ID
+    const isNumeric = !isNaN(search);
+    if (isNumeric) {
+      dispatch(getById(search));
+    } else {
+      dispatch(getByName(search));
+    }
   };
 
   return (
-    <div className={styles.SearchBar}>
-      <input className= {styles.SearchBar} type='text' value={searchTerm} onChange={handleInputChange}/>
-      <button onClick={handleSearch}>Search</button>
+    <div className={styles.SearchBarContainer}>
+      <input
+        className={styles.SearchInput}
+        type='text'
+        value={searchTerm}
+        onChange={handleInputChange}
+        placeholder='Search...'
+      />
+      <button className={styles.SearchButton} onClick={handleSearch}>
+        Search
+      </button>
     </div>
   );
 }

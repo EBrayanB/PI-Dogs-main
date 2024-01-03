@@ -2,7 +2,7 @@ import React from "react";
 import styles from '../PAGINADO/Paginado.module.css'
 
 
-function Paginado ({dogsPerPage, dogs, paginado}){ // declaro mi paginado, traigo las props del otro componente
+function Paginado ({dogsPerPage, dogs, paginado}){
   const pageNumber = []
 
   for (let i = 0; i <= Math.floor(dogs/dogsPerPage); i++) {
