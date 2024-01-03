@@ -62,22 +62,21 @@ export function getById(id) {
 
 
 export function FilterByWeight(payload) {
-  return{
+  return {
     type: SORT_BY_WEIGHT,
-    payload
-}
- 
+    payload,
+  };
 }
 
 export function orderByName(payload) {
   return { type: ORDER_BY_NAME, payload };
 }
 
-export const filteredByOrigin = (payload) => { 
+export function filteredByOrigin(payload) {
   return {
-      type: FILTERED_BY_ORIGIN,
-      payload
-  }
+    type: FILTERED_BY_ORIGIN,
+    payload,
+  };
 }
 
 
