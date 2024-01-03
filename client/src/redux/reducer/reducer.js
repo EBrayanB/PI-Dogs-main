@@ -1,8 +1,3 @@
-// estado inicial de nuestro reducer.
-// acá traigo la lista de las razas, los temperamentos, y los detalles (si se pidieron)
-// dogsCopy es una copia de dogs. sobre esta se hacen los filtros (para evitar problemas con array ya filtrado)
-
-
 const initialState = {
     dogs: [],
     details: [],
@@ -24,7 +19,6 @@ function rootReducer(state = initialState, action) {
             }
 
         case "GET_TEMPERAMENTS":
-        //const filteredTemp = action.payload.filter((temp) => temp.name !== ""); //eliminar razas con strings vacios
                 return {
                   ...state,
                   temperaments: action.payload
@@ -115,14 +109,16 @@ function rootReducer(state = initialState, action) {
                         }
                         return 0;
                     }) :
-                    state.dogs.sort(function (a,b) {
-                        if(a.name >b.name) {
-                            return -1;
+                    state.dogs.sort(function (a, b) {
+                        if (a.name > b.name) {
+                          return -1;
                         }
-                        if(b.name > a.name) {
-                            return 1;
+                        if (b.name > a.name) {
+                          return 1;
                         }
-                    })
+                        return 0;
+                      });
+                      
                     return {
                         ...state,
                         dogs: sortedArr
@@ -163,24 +159,7 @@ function rootReducer(state = initialState, action) {
                                         ...state,
                                         data: updatedData
                                     };
-
-                                    
-                                /*     case "UPDATE_DOG":
-                                        const updatedDogs = state.dogs.map((dog) => {
-                                          if (dog.id === action.payload.id) {
-                                            return {
-                                              ...dog,
-                                              ...action.payload
-                                            }
-                                          }
-                                          return dog
-                                        })
-                                        return {
-                                          ...state,
-                                          dogs: updatedDogs
-                                        }
- */
-                                  
+              
                       default:
                       return state;
     }

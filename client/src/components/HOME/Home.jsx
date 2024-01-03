@@ -16,12 +16,12 @@ function Home() {
   //valores del estado local de redux que necesito:
   const dogs = useSelector(state => state.dogs);
   const temperamentsState = useSelector(state => state.temperaments);
-  const [orden, setOrden] = useState('');
+  const [setOrden] = useState('');
 
 
   //PAGINADO:
   const [currentPage, setCurrentPage]= useState(1) //mi pagina actual que arraca en 1
-  const [dogsPerPage, setDogsPerPage]= useState(8) // Mis perros por pagina que son 8
+  const [dogsPerPage]= useState(8) // Mis perros por pagina que son 8
  
   const indexOfLastDog= currentPage * dogsPerPage;
   const indexOfFirstDog= indexOfLastDog - dogsPerPage;
@@ -41,10 +41,6 @@ useEffect(() => {
 
 }, [dispatch]);
 
-/*   function handleClick(event) {
-    event.preventDefault();
-    dispatch(getDogs());
-  }  */
   
   const handleFilterByTemperament = (e) => {
     e.preventDefault();    
